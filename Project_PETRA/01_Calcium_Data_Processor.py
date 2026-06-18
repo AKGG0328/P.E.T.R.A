@@ -1,7 +1,5 @@
 import pandas as pd
 import numpy as np
-import openpyxl
-
 
 def load_metafluor_rgn(file_path):
     regions = []
@@ -28,8 +26,6 @@ def load_metafluor_rgn(file_path):
     df['x'] = 0.7752 * x_raw
     df['y'] = 0.7752 * (512 - y_raw)
     return df
-
-
 def simple_calcium_process():
     print("\n--- Processing Simplified Calcium Imaging Data ---")
 
@@ -145,10 +141,13 @@ def simple_calcium_process():
 
                 # Check the original output_data for the False flags
                 if valid_col in output_data.columns:
-                    invalid_mask = ~output_data[valid_col]
+                    invalid_qratio = ~output_data[valid_col]
+                    threshold = clean_df[col] >= 0.02
+                    invalid_mask = invalid_qratio & threshold
+                    negative_mask = clean_df[col] < 0 #label intensity value < 0 updated 20260618
 
-                    # Paint those exact coordinates red in the style matrix
-                    styles.loc[invalid_mask, col] = 'background-color: #ff9999; color: black;'
+                    mask = invalid_mask | negative_mask
+                    styles.loc[mask, col] = 'background-color: #ff9999; color: black;'
 
         return styles
 
@@ -159,9 +158,6 @@ def simple_calcium_process():
     output_filename = 'Data_Output_Simplified.xlsx'
     styled_df.to_excel(output_filename, engine='openpyxl', index=False)
     print(f" All time points processed! Saved to '{output_filename}'\n")
-
-
-
 
 simple_calcium_process()
 
