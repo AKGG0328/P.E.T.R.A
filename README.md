@@ -5,7 +5,7 @@ P.E.T.R.A.---Pipeline for Experimental Transients & aRt Analysis
  Overview
 ---
 This project is a modern Python port of our lab's original MATLAB processing scripts.
-Originally developed to analyze transient calcium responses in DRG neurons under ultrasound stimulation, this tool automates the extraction, validation, and geometric analysis of raw fluorescence data.  
+Originally developed to analyze transient calcium responses in DRG neurons under ultrasound stimulation, this tool automates the extraction, validation, and geometric analysis of raw fluorescence data from __MetaFluor__.  
 This tool significantly improves execution speed, removes the need for expensive MATLAB licenses, and packages the entire workflow into a standalone, interactive executable that requires zero coding knowledge to run during active experiments.
 
 The Art ANOVA analysis process can be seen in `Pipeline for Experimental Transients & aRt Analysis.ipynb` but is not yet implemented
