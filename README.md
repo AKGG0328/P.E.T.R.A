@@ -31,18 +31,21 @@ The Art ANOVA analysis process can be seen in `Pipeline for Experimental Transie
   Installation & Usage
  ---
 
- `03_Third_Data_Processor.py`  
- ### Run from source
-In terminal  
-1. `pip install pandas numpy openpyxl`
-2. `python 03_Third_Data_Processor.py`
- 
- ### Standalone Executable
-1. Download the .py code
-2. In terminal, `pyinstaller --onefile 03_Third_Data_Processor.py` to export to .exe file
-3. Put .exe file in your master experiment folder
-4. execute .exe file
-5. Follow the on-screen prompts to select your target sheet and input your stimulation times.
+This is the active, standalone executable for the **Calcium Imaging Data Processor**. 
+
+This `.exe` contains the fully packaged Python pipeline used to analyze ratiometric calcium transients (340/380nm) exported from MetaFluor. **No Python installation is required to run this tool.**
+
+### 🛠️ Features Included in this Build:
+* **Auto-Detection:** Automatically finds the most recent `20*.xlsx` MetaFluor raw data file in the same folder.
+* **Interactive Menu:** CLI menu to quickly select the specific experiment sheet.
+* **Smart RGN Routing:** Automatically drops re-run suffixes (e.g., `-2`) to locate the correct `region.RGN` coordinates.
+* **Transient Validation:** Filters physical motion artifacts using the `q_ratio` calculation and a `< 0.02` noise threshold.
+* **Smart Appending:** Outputs formatted, color-coded results directly into a master `Data_Output_Simplified.xlsx` file, adding new sheets without overwriting previous runs.
+
+### 🚀 How to Use:
+1. Download `03_Third_Calcium_Processor.exe` from the Assets section below.
+2. Place the `.exe` into your experiment folder (where your raw MetaFluor `.xlsx` and region folders are located).
+3. Double-click to run!
 
 
 
