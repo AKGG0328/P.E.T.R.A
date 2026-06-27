@@ -43,7 +43,7 @@ This `.exe` contains the fully packaged Python pipeline used to analyze ratiomet
 * **Smart Appending:** Outputs formatted, color-coded results directly into a master `Data_Output_Simplified.xlsx` file, adding new sheets without overwriting previous runs.
 
 ### 🚀 How to Use:
-1. Download `03_Third_Data_Processor.exe` from the Assets section below.
+1. Download the newest release from the Assets section below.
 2. Place the `.exe` into your experiment folder (where your raw MetaFluor `.xlsx` and region folders are located).
    <img width="373" height="314" alt="螢幕擷取畫面 2026-06-26 112744" src="https://github.com/user-attachments/assets/48800522-476c-49ab-aa81-9f57dbfd4d98" />
 3. Double-click to run!
