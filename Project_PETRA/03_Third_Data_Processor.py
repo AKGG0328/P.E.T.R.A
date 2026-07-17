@@ -159,12 +159,8 @@ def simple_calcium_process():
         print(f"  -> Calculated: {col_name} ")
 
 
-    # 7. Read Region Data Directly (Ensure your custom function is defined in your environment)
-    parts = selected_sheet.split('-')
-    if len(parts) > 2:
-        base_name = "-".join(parts[:-1])
-    else:
-        base_name = selected_sheet
+    # 7. Read Region Data Directly
+    base_name = selected_sheet
     folder_pattern = f"{base_name}*"
     matching_folders = [f for f in glob.glob(folder_pattern) if os.path.isdir(f)]
 
@@ -234,6 +230,13 @@ def simple_calcium_process():
                     styles.loc[mask, col] = 'background-color: #ff9999; color: black;'
 
         return styles
+
+    '''
+    Construction Zone A
+    def apply_orange_label (for angle detection)     
+    - 
+
+    '''
 
     # Apply the styling to the clean data (axis=None evaluates the whole table at once)
     styled_df = clean_data.style.apply(apply_red_labels, axis=None)
