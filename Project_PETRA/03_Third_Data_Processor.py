@@ -231,15 +231,20 @@ def simple_calcium_process():
 
         return styles
 
-    '''
-    Construction Zone A
-    def apply_orange_label (for angle detection)     
-    - 
+    #Construction Zone A (2026.8.20)
+    def apply_orange_label (clean_df):
+        styles = pd.DataFrame('', index=clean_df.index, columns=clean_df.columns)
+        needle_mask = (clean_df['Angle'] >= 135) & (clean_df['Angle'] <= 225)
 
-    '''
+        # Apply orange background to all columns for the masked rows
+        styles.loc[needle_mask, :] = 'background-color: #FFAE42; color: black;'
+
+        return styles
+
+
 
     # Apply the styling to the clean data (axis=None evaluates the whole table at once)
-    styled_df = clean_data.style.apply(apply_red_labels, axis=None)
+    styled_df = (clean_data.style.apply(apply_orange_label, axis=None).apply(apply_red_labels, axis=None))
 
     # Save to a single Excel sheet (requires 'openpyxl')
     output_filename = 'Data_Output.xlsx'
