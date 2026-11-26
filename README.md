@@ -1,4 +1,5 @@
-P.E.T.R.A.---Pipeline for Experimental Transients & aRt Analysis
+P.E.T.R.A.---Pipeline for Experimental Transients & aRt Analysis 
+-- V2.0 instruction not yet updated -- 
 ---
 **Author**: Isaac Dean Huang
 
